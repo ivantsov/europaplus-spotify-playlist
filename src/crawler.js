@@ -1,14 +1,9 @@
-const {createError} = require('micro');
 const request = require('superagent');
 const {JSDOM} = require('jsdom');
 
-async function load(url) {
-  try {
-    const res = await request.get(url);
-    return res.text;
-  } catch (err) {
-    throw createError(err.statusCode || 500, 'Cannot load playlist', err);
-  }
+async function load() {
+  const res = await request.get('http://hotcharts.ru/europaplus');
+  return res.text;
 }
 
 function parse(html) {
@@ -24,10 +19,6 @@ function parse(html) {
 }
 
 module.exports = async function() {
-  const url = 'http://hotcharts.ru/europaplus';
-
-  const html = await load(url);
-  const items = parse(html);
-
-  return items;
+  const html = await load();
+  return parse(html);
 };
