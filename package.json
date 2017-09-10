@@ -1,0 +1,31 @@
+{
+  "name": "europaplus-spotify-playlist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro ./src/crawler.js",
+    "watch": "micro-dev ./src/crawler.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivantsov/europaplus-spotify-playlist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivantsov/europaplus-spotify-playlist/issues"
+  },
+  "homepage": "https://github.com/ivantsov/europaplus-spotify-playlist#readme",
+  "dependencies": {
+    "jsdom": "^11.2.0",
+    "micro": "^8.0.4",
+    "superagent": "^3.6.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^1.2.2",
+    "prettier": "^1.6.1"
+  }
+}
