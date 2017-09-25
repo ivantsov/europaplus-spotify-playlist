@@ -11,8 +11,12 @@ async function init() {
   spotifyApi.setAccessToken(res.body.access_token);
 }
 
+const excludeList = ['', 'karaoke'].join(' NOT ');
+
 async function getTrack(name) {
-  const res = await spotifyApi.searchTracks(name, {limit: 1});
+  const query = `${name}${excludeList}`;
+  const res = await spotifyApi.searchTracks(query, {limit: 1});
+
   return res.body.tracks.items[0];
 }
 
